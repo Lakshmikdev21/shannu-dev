@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Clone') {
             steps {
-                git branch: 'main', url: 'https://github.com/Lakshmikdev21/Petclinic.git'
+                git credentialsId: 'github', url: 'https://github.com/Lakshmikdev21/shannu-dev.git'
             }
         }
           stage('Build') {
@@ -19,7 +19,7 @@ pipeline {
         }
 		stage('Deploy to Tomcat Server') {
         steps {
-            deploy adapters: [tomcat9(alternativeDeploymentContext: '', credentialsId: 'Tomcat', path: '', url: 'http://localhost:8080')], contextPath: 'GLK PETCLINIC', war: 'target/*.war'
+            deploy adapters: [tomcat9(alternativeDeploymentContext: '', credentialsId: 'Tomcat', path: '', url: 'http://localhost:8080')], contextPath: 'SHANNU CALCY', war: 'target/*.war'
         }
     }
     }
