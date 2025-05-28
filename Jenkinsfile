@@ -12,6 +12,11 @@ pipeline {
                bat 'mvn clean install'
             }
         }
+	    stage('Test') {
+            steps {
+               bat 'mvn test'
+            }
+        }
           stage('Generate Artifacts') {
             steps {
                archiveArtifacts artifacts: 'target/*.war', followSymlinks: false
